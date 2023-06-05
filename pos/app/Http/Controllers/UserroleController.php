@@ -29,4 +29,11 @@ class UserroleController extends Controller
             ->make(true);
         }
     }
+    public function deleteuserrole(Request $request)
+    {
+         $data=UserroleModel::where('code',$request->code_to_delete)->delete();
+         return response()->json([
+            'status'=>'User Role code '.$request->code_to_delete.' has been delete from your Project'
+         ]);
+    }
 }

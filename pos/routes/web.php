@@ -73,6 +73,8 @@ Route::group(['prefix' => 'ecommerce'], function () {
 Route::group(['prefix' => 'userrole'], function () {
     Route::resource('/userrole',UserroleController::class);
     Route::get('/userrolelist',[UserroleController::class,'user_role_datatable'])->name('userrole.list');
+    Route::get('/addnewuserrole');
+    Route::get('/deleteuserrole',[UserroleController::class,'deleteuserrole']);
      
 
 });

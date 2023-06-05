@@ -269,7 +269,7 @@
             'inactived':inactived
          };
          $.ajax({
-                url:'addnewpermission',
+                url:'addnewuserrole',
                 type:'POST',
                 data:data,
                 success:function(){
@@ -318,11 +318,11 @@ $(document).on('click','.actiondelete',function(){
           'code_to_delete':code_to_delete
          };
          $.ajax({
-                url:`deletepermission`,
+                url:`deleteuserrole`,
                 data:data,
-                success:function(){
+                success:function(data){
                     datatable.ajax.reload(null, false);
-                    toastr.warning('Permission Has Been delete from your System');
+                    toastr.success(data.status);
                 }
             })
 })
