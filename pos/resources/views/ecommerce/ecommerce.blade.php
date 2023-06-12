@@ -97,6 +97,7 @@
         width: 97%;
         margin: 0 auto;
         margin-top: 10px;
+
     }
     .form_subdata{
         
@@ -139,6 +140,118 @@
     }
     .dashboard-content-container{
         background-color: #ffe1e100 !important;
+    }
+    .merchent{
+        width: 100%;
+        background: white;
+        height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px !important;
+    padding: 5px;
+    border: 1px solid rgba(180, 208, 224, 0.5);
+    box-shadow: 3px 4px 23px #edecec;
+    }
+    .merchent_sub{
+       
+        width: 100%;
+        background: white;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px !important;
+    padding: 10px;
+    border: 1px solid rgba(180, 208, 224, 0.5);
+    box-shadow: 3px 4px 23px #edecec;
+    margin-top: 10px;
+    }
+    .list{
+        display: flex;
+        justify-content: space-between;
+         width: 100%;
+    }
+    .merchent .control_img {
+        width: 50px;
+        height: 50px;
+    }
+    .merchent .control_img img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        margin-bottom: 5px;
+    }
+    h4{
+        color: #334257 !important;
+        margin: 0 !important;
+    }
+    p.card_data_title{
+        color: #334257 !important;
+        font-weight: 500;
+    }
+    h4{
+        padding: 0;
+        margin: 0;
+    }
+    p{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .merchent_sublist img{
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        
+    }
+    .merchent_sublist{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .form_img_logo ,.form_img_bener{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 200px;
+        padding: 10px
+    }
+    .form_img_logo img ,.form_img_bener img{
+        width: 30%;
+        height: 150px;
+        object-fit: cover;
+        border:   1px solid #ced4da;
+        border-radius: 5px !important;
+        margin-bottom: 5px;
+    }
+    .form_img_bener img{
+        width: 90%;
+        height:90%;
+    }
+    .sub_reset_button{
+        display: flex;
+        justify-content: end;
+
+    }
+    button.reset{
+        background-color: #ededed;
+    border-color: #ededed;
+    color: #334257;
+    border-radius: 4px !important;
+    padding: 10px 20px;
+    margin-right: 10px;
+    }
+    button.add{
+        background-color: #04a3e;
+    border-color: #ededed;
+    color: white;
+    border-radius: 4px !important;
+    padding: 10px 20px;
+    margin-right: 10px;
     }
 </style>
 <body>
@@ -539,6 +652,176 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="filter_statistice">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="top_cart_title">
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <span>Merchent Wallet</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="merchent">
+                                    <div class="control_img">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                    </div>
+                                    <h4>$3,465.0</h4>
+                                    <p>Withdrawable Balance</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="merchent_sub">
+                                            <div class="list">
+                                                <div class="merchent_sublist" >
+                                                    <h4>$500.0</h4>
+                                                    <p class="card_data_title">Aready Withdrawn</p>
+                                                    
+                                                </div>
+                                                <div class="merchent_sublist">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                 
+            </div>
+        </div>
+        <div class="row">
+            <div class="filter_statistice">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="top_cart_title">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <span>Merchent Wallet</span>
+                                </div>
+                                <div class="col-lg-2">
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 form-group">
+                        <label for="shop_name" class="title-color d-flex gap-1 align-items-center">Shop name</label>
+                        <input type="text" class="form-control form-control-user" id="shop_name" name="shop_name" placeholder="Ex: Jhon" value="" required="">
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <label for="shop_name" class="title-color d-flex gap-1 align-items-center">Shop name</label>
+                        <input type="text" class="form-control form-control-user" id="shop_name" name="shop_name" placeholder="Ex: Jhon" value="" required="">
+                        </div>
+                    <div class="col-lg-6">
+                        <div class="form_img_logo">
+                            <img src="https://cdn-icons-png.flaticon.com/512/10773/10773779.png" alt="">
+                            <p>Click on image to upload</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form_img_bener">
+                            <img src="	https://6valley.6amtech.com/public/assets/back-end/img/400x400/img2.jpg" alt="">
+                            <p>Click on image to upload</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="sub_reset_button">
+                            <button class="reset">Reset</button>
+                            <button class="add">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             </main>
 
         </div>

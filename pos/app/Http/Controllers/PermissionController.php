@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\PermissionModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use Yajra\DataTables\Facades\DataTables;
-
+ 
 use function PHPUnit\Framework\returnSelf;
 
 class PermissionController extends Controller
@@ -110,17 +111,21 @@ class PermissionController extends Controller
     public function showedit(Request $request)
     {
         if($request->ajax()) {
-            $data=PermissionModel::where('code',($request->code))->get();
-            return view('layouts.modal',compact('data'))->render();
+            $tablename="Permission";
+            $code=PermissionModel::where('code',($request->code))->get();
+            $data=  DB::getSchemaBuilder()->getColumnListing('permissions');
+            return view('layouts.modal',compact('code','data','tablename'))->render();
     }
        
          
     }
     public function  showadd(Request $request)
     {
+    
         if($request->ajax()) {
-            // $data=PermissionModel::where('code',($request->code))->get();
-            return view('layouts.modal')->render();
+        $tablename="Permission";
+          $data=  DB::getSchemaBuilder()->getColumnListing('permissions');
+            return view('layouts.modal',compact('data','tablename'))->render();
     }
     }
 }

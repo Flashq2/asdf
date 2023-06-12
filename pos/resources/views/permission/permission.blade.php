@@ -248,15 +248,13 @@ $(document).on('click','.edit',function(){
                 },
                 success:function(data){
                     $('.sty_loader').fadeOut(2000);
-                    // datatable.ajax.reload(null, false);
-                    //  toastr.success(`Permission Code ${code} has been update`);
                     setTimeout(() => {
                            $('#staticBackdrop').html(data);
                      $('#staticBackdrop').modal('show')
                     }, 1000);
                   
                      
-                    // window.history.replaceState(null, null,'/permission/permission');
+                    
                 }
             })
 

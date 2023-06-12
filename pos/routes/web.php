@@ -1,25 +1,15 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\eCommereceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserroleController;
+use App\Models\CustomerModel;
 use App\Models\PermissionModel;
 use App\Models\UserroleModel;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -73,8 +63,22 @@ Route::group(['prefix' => 'ecommerce'], function () {
 Route::group(['prefix' => 'userrole'], function () {
     Route::resource('/userrole',UserroleController::class);
     Route::get('/userrolelist',[UserroleController::class,'user_role_datatable'])->name('userrole.list');
-    Route::get('/addnewuserrole');
+    Route::post('/addnewuserrole',[UserroleController::class,'save']);
+    Route::get('/edituserrole',[UserroleController::class,'edituserrole']);
+    Route::get('/clickedituserrole',[UserroleController::class,'clickedituserrole']);
     Route::get('/deleteuserrole',[UserroleController::class,'deleteuserrole']);
+    Route::get('/showmodaluserrole',[UserroleController::class,'showadd']);
+     
+
+});
+Route::group(['prefix' => 'customer'], function () {
+    Route::resource('/customer',CustomerController::class);
+    Route::get('/addnewcustomer',[CustomerController::class,'store']);
+    Route::post('/submitform',[CustomerController::class,'create']);
+    Route::get('/customerlist',[CustomerController::class,'show'])->name('customer.list');
+    Route::post('/deletecustomer/{id}',[CustomerController::class,'destroy']);
+    Route::get('/getfiledlist',[CustomerController::class,'getfield']);
+    Route::post('/updatecusotmer',[CustomerController::class,'updaterecord']);
      
 
 });

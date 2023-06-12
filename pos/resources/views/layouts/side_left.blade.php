@@ -36,7 +36,7 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
+                <a class="sidebar-link" href="{{route('customer.index')}}">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Customer</span>
                 </a>
             </li>
