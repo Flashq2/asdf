@@ -20,7 +20,6 @@
                     <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                 </a>
             </li>
-
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('permission.index')}}">
                     <i class="align-middle" data-feather="log-in"></i> <span
@@ -65,12 +64,12 @@
                 Items Management
             </li>
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
+                <a class="sidebar-link" href="{{route('items.index')}}">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Items</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
+                <a class="sidebar-link" href="{{route('webservice.index')}}">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Item Group</span>
                 </a>
             </li>

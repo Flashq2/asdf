@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\eCommereceController;
+use App\Http\Controllers\FormatDatetimes;
+use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\UserController;
@@ -82,5 +84,16 @@ Route::group(['prefix' => 'customer'], function () {
      
 
 });
+Route::group(['prefix' => 'items'], function () {
+    Route::resource('/items',ItemsController::class);
+     
 
+});
+
+Route::group(['prefix' => 'webservice'], function () {
+    Route::resource('/webservice',FormatDatetimes::class);
+    Route::get('/returnvalue/{field}/{value}',[FormatDatetimes::class,'getSpecialConditionValue']);
+     
+
+});
 // Route::get('/d',[TestingController::class,'ajaxpagination']);
