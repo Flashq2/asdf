@@ -294,12 +294,15 @@ class FormatDatetimes extends Controller
            else{
                $time = Carbon::createFromTime(00,00,00);
            }
-        
+        if($field=="datetime"){
         return Carbon::parse($time)->format('H:i:s');
+        }
+        else{
+            return "";
         
         
         }catch (\Exception $ex) {
-            return $ex;
+            return "";
         }
     }
     public function timeformat($value)
