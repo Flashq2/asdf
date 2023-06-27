@@ -4,7 +4,19 @@
 <head>
     @include('layouts.header')
 </head>
-
+<style>
+    .spantime{
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background-color: cadetblue;
+        cursor: pointer;
+        display: inline;
+        padding: 5px;
+        color: white;
+        
+    }
+</style>
 <body>
     <div class="wrapper">
         @include('layouts.side_left')
@@ -59,7 +71,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
-                            <input type="text" class="form-control textvalue" >
+                            <input type="text" class="form-control datetimes" name="datetimes" id="01" ><span class="spantime" onclick="erpUI.datatimefiler('01')">Click</span>
+                            <input type="text" class="form-control datetimes" name="datetimes"  id="02"><span class="spantime" id="02">Click</span>
+                            <input type="text" class="form-control datetimes" name="datetimes" id="03"><span class="spantime"  id="03">Click</span>
+                             
                         </div>
                     </div>
                 </div>
@@ -69,8 +84,17 @@
     </div>
 </body>
 @include('script');
+<script>
+    $(function() {
+   
+    });
+    </script>
  <script>
     $(document).ready(function () {
+        
+       
+
+        
        
         $(document).on('click','.add',function(){
             let field="datetime";
@@ -85,5 +109,6 @@
         })
         
     });
+ 
  </script>
 </html>
