@@ -301,7 +301,8 @@ class FormatDatetimes extends Controller
             return "";
         
         
-        }catch (\Exception $ex) {
+        }
+    }catch (\Exception $ex) {
             return "";
         }
     }
@@ -373,6 +374,7 @@ class FormatDatetimes extends Controller
         }
         return Carbon::parse($result)->format('H:i');
     }
+
 
   
 }

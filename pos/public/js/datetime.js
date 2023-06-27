@@ -61,7 +61,7 @@
                 direction: "ltr",
                 format: t.localeData().longDateFormat("L"),
                 separator: "..",
-                applyLabel: "Apply",
+                applyLabel: "Ok",
                 cancelLabel: "Cancel",
                 weekLabel: "W",
                 customRangeLabel: "Custom Range",
@@ -78,7 +78,17 @@
                 typeof (i = e.extend(this.element.data(), i)).template ||
                 i.template instanceof e ||
                 (i.template =
-                    '<div class="daterangepicker"><div class="ranges"></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn" type="button"></button><button class="applyBtn" disabled="disabled" type="button"></button> </div></div>'),
+                    `<div class="daterangepicker">
+                    <div class="ranges"></div>
+                    <div class="drp-calendar left"><div class="calendar-table"></div>
+                    <div class="calendar-time"></div>
+                    </div><div class="drp-calendar right">
+                    <div class="calendar-table"></div>
+                    <div class="calendar-time"></div></div>
+                    <div class="drp-buttons"><span class="drp-selected"></span>
+                    <button class="cancelBtn" type="button"></button>
+                    <button class="applyBtn" disabled="disabled" type="button"></button>
+                     </div></div>`),
             (this.parentEl =
                 i.parentEl && e(i.parentEl).length
                     ? e(i.parentEl)
@@ -846,9 +856,7 @@
                             ),
                             a.second(
                                 isNaN(a.second())
-                                    ? n
-                                          .find(".secondselect option:selected")
-                                          .val()
+                                    ? n.find(".secondselect option:selected").val()
                                     : a.second()
                             ),
                             !this.timePicker24Hour)

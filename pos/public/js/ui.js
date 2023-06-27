@@ -376,6 +376,8 @@ var erpUI = {
        timePicker: true,
        startDate: moment().startOf('hour'),
        endDate: moment().startOf('hour').add(32, 'hour'),
+       timePicker24Hour:true,
+       timePickerSeconds:true,
        locale: {
        format: 'YYYY-M-DD hh:mm:ss'
          }

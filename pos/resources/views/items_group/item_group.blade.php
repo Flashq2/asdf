@@ -72,8 +72,8 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <input type="text" class="form-control datetimes" name="datetimes" id="01" ><span class="spantime" onclick="erpUI.datatimefiler('01')">Click</span>
-                            <input type="text" class="form-control datetimes" name="datetimes"  id="02"><span class="spantime" id="02">Click</span>
-                            <input type="text" class="form-control datetimes" name="datetimes" id="03"><span class="spantime"  id="03">Click</span>
+                            <input type="text" class="form-control datetimes" name="datetimes"  id="02"><span class="spantime" onclick="erpUI.datatimefiler('02')">Click</span>
+                            <input type="text" class="form-control datetimes" name="datetimes" id="03"><span class="spantime"  onclick="erpUI.datatimefiler('03')">Click</span>
                              
                         </div>
                     </div>
@@ -96,17 +96,17 @@
 
         
        
-        $(document).on('click','.add',function(){
-            let field="datetime";
-        let value=$('.textvalue').val()
-          $.ajax({
-            type: "GET",
-            url:`returnvalue/${field}/${value}`,
-            success: function (response) {
-                    console.log(response);
-            }
-        });  
-        })
+        // $(document).on('click','.add',function(){
+        //     let field="datetime";
+        // let value=$('.textvalue').val()
+        //   $.ajax({
+        //     type: "GET",
+        //     url:`returnvalue/${field}/${value}`,
+        //     success: function (response) {
+        //             console.log(response);
+        //     }
+        // });  
+        // })
         
     });
  
