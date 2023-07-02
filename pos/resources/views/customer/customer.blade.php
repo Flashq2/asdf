@@ -5,11 +5,11 @@
     @include('layouts.header')
 </head>
 <style>
-
-/* .title::first-letter{
+    /* .title::first-letter{
         text-transform: capitalize;
     } */
 </style>
+
 <body>
     <div class="wrapper">
         @include('layouts.side_left')
@@ -32,8 +32,8 @@
                             <div class="col-6">
                                 <div class="row">
                                     <div class="col-2">
-                                     <a href="{{url('customer/addnewcustomer')}}"> <button class="action"> Action  
-                                        </button></a> 
+                                        <a href="{{ url('customer/addnewcustomer') }}"> <button class="action"> Action
+                                            </button></a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                         <thead>
                             <th>Action</th>
                             @foreach ($field as $fields)
-                               <th >  {{str_replace('_',' ',$fields)}} </th>
+                                <th> {{ str_replace('_', ' ', $fields) }} </th>
                             @endforeach
                         </thead>
                         <tbody>
@@ -62,47 +62,44 @@
 </body>
 @include('script');
 <script>
-    
- 
-   
     $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-        });
-    $(document).ready(function () {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).ready(function() {
         var datatable;
-        let tr='';
-        let ty=[];
-        ty.push({data: 'action',
-                           name: 'action',
-                           orderable: true,
-                           searchable: true})
-       
+        let tr = '';
+        let ty = [];
+        ty.push({
+            data: 'action',
+            name: 'action',
+            orderable: true,
+            searchable: true
+        })
 
-          
-        
+
+
 
         $(function() {
-          
-        
-        console.log(typeof(ty));
-        $.ajax({
-                url:'getfiledlist',
-                type:'get',
-                success:function(data){
-                   
+            
+            $.ajax({
+                url: 'getfiledlist',
+                type: 'get',
+                success: function(data) {
                     data.data.forEach(element => {
-                        if(element !='updated_at' && element!='created_at' && element!='deleted_at'){
-                             ty.push({data:element,name:element});
+                        if (element != 'updated_at' && element != 'created_at' &&
+                            element != 'deleted_at') {
+                            ty.push({
+                                data: element,
+                                name: element
+                            });
                         }
-                       
+
                     });
-                    
-                           
                 },
                 async: false
-                 
+
             });
             console.log(ty)
 
@@ -111,8 +108,7 @@
                 serverSide: true,
                 rowReorder: true,
                 ajax: " {{ route('customer.list') }}",
-                columns: ty
-                ,
+                columns: ty,
                 dom: "Blfrtip",
                 buttons: [
 
@@ -168,24 +164,25 @@
             });
 
         })
-        
-        $(document).on('click',' .actiondelete',function(){
-        //    alert($(this).data("delete")) ;
-            let codetodelete=$(this).data("delete");
+
+        $(document).on('click', ' .actiondelete', function() {
+            //    alert($(this).data("delete")) ;
+            let codetodelete = $(this).data("delete");
             $.ajax({
-                url:'deletecustomer/'+codetodelete,
-                type:'POST',
+                url: 'deletecustomer/' + codetodelete,
+                type: 'POST',
                 contentType: false,
                 cache: false,
                 processData: false,
-                success:function(){
+                success: function() {
                     datatable.ajax.reload(null, false);
                     toastr.success(`${codetodelete} has been delete from your System`)
                 }
             })
         });
-     
-        
+
+
     });
 </script>
+
 </html>

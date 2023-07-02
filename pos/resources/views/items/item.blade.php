@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +5,11 @@
     @include('layouts.header')
 </head>
 <style>
-    .titles::first-letter{
+    .titles::first-letter {
         text-transform: capitalize;
     }
-    .control_img{
+
+    .control_img {
         height: 300px;
         margin-top: 30px;
         border-radius: 5px !important;
@@ -19,100 +19,111 @@
         flex-direction: column;
         align-items: center;
     }
-    .control_img  img{
+
+    .control_img img {
         width: 70%;
         height: 80%;
         object-fit: contain;
-        
 
-         
+
+
     }
+
     .card {
-  margin: 20px;
-  padding: 20px;
-  width: 300px;
-  min-height: 200px;
-  display: grid;
-  grid-template-rows: 20px 50px 1fr 50px;
-  border-radius: 10px;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s;
-}
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        min-height: 200px;
+        display: grid;
+        grid-template-rows: 20px 50px 1fr 50px;
+        border-radius: 10px;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+        transition: all 0.2s;
+    }
 
-.card:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-  transform: scale(1.01);
-}
+    .card:hover {
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+        transform: scale(1.01);
+    }
 
-.card__link,
-.card__exit,
-.card__icon {
-  position: relative;
-  text-decoration: none;
-  color: rgba(19, 17, 17, 0.9);
-  width: 100%;
-  height: 100px;
-  /* background: aqua; */
-  border-radius: 20px;
-}
-.card__icon img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    .card__link,
+    .card__exit,
+    .card__icon {
+        position: relative;
+        text-decoration: none;
+        color: rgba(19, 17, 17, 0.9);
+        width: 100%;
+        height: 100px;
+        /* background: aqua; */
+        border-radius: 20px;
+    }
 
-}
+    .card__icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
 
-.card__link::after {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  content: "";
-  width: 0%;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0.6);
-  transition: all 0.5s;
-}
+    }
 
-.card__link:hover::after {
-  width: 100%;
-}
+    .card__link::after {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        content: "";
+        width: 0%;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: all 0.5s;
+    }
 
-.text {
-  color: rgb(187, 8, 8);
-}
+    .card__link:hover::after {
+        width: 100%;
+    }
 
-.card__exit {
-  grid-row: 1/2;
-  justify-self: end;
-}
+    .text {
+        color: rgb(187, 8, 8);
+    }
 
-.card__icon {
-  grid-row: 2/3;
-  font-size: 30px;
-}
+    .card__exit {
+        grid-row: 1/2;
+        justify-self: end;
+    }
 
-.card__title {
-  grid-row: 3/4;
-  font-weight: 400;
-  color: #c51818;
-}
+    .card__icon {
+        grid-row: 2/3;
+        font-size: 30px;
+    }
 
-.card__apply {
-  grid-row: 4/5;
-  align-self: center;
-}
+    .card__title {
+        grid-row: 3/4;
+        font-weight: 400;
+        color: #c51818;
+    }
 
-.card-5 {
-  /* background: radial-gradient(#f588d8, #c0a3e5); */
-}
+    .card__apply {
+        grid-row: 4/5;
+        align-self: center;
+    }
 
-@media (max-width: 1600px) {
-  .cards {
-    justify-content: center;
-  }
-}
+    .card-5 {
 
+        /* background: radial-gradient(#f588d8, #c0a3e5); */
+    }
+
+    .img-rounded {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px !important;
+        cursor: pointer;
+    }
+
+    @media (max-width: 1600px) {
+        .cards {
+            justify-content: center;
+        }
+    }
 </style>
+
 <body>
     <div class="wrapper">
         @include('layouts.side_left')
@@ -129,25 +140,33 @@
             <main class="content">
                 <div class="row">
                     <h1>Items</h1>
-                     
+
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-lg-8">
-                        <form action="">
+                        <form id="item_form">
                             <div class="row">
-
                                 @foreach ($field as $item_field)
-                                @if($item_field !='updated_at' && $item_field !='created_at' && $item_field !='deleted_at'  && $item_field !='picture' )
-                            <div class="col-lg-6">
-                                <label for="" style="padding:5px;" class="titles">{{str_replace('_',' ',$item_field)}}</label>
-                               <input type="text" class="form-control" id="{{$item_field}}">
-                           </div>
-                           @endif
-                            @endforeach
+                                    @if (
+                                        $item_field != 'updated_at' &&
+                                            $item_field != 'created_at' &&
+                                            $item_field != 'deleted_at' &&
+                                            $item_field != 'picture')
+                                        <div class="col-lg-6">
+                                            <label for="" style="padding:5px;"
+                                                class="titles">{{ str_replace('_', ' ', $item_field) }}
+                                                @if($item_field=="no")
+                                                <span style="color: red">*</span>
+                                                @endif
+                                            </label>
+                                            <input type="text" class="form-control" id="{{ $item_field }}">
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
-                            
-                            
+
+
                         </form>
                     </div>
                     <div class="col-lg-4">
@@ -156,116 +175,164 @@
                             <h4>Click on image ot upload</h4>
                         </div>
                     </div>
-                    <div class="col-8">
-                        <button>Submit</button>
+                    <div class="col-lg-6">
+
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="submit" type="submit">Submit</button>
                         <button style="background-color:red;">Reset</button><br>
                     </div>
                 </div>
                 <div class="row">
-                    <table id="user" class="table" style="width:100%">
+                    <table id="item" class="table" style="width:100%">
                         <thead>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Sale_Persion</th>
-                            <th>Gender</th>
-                            <th>Phone_No</th>
-                            <th>Permision_Code</th>
-                            <th>User Role Code</th>
-                            <th>Address</th>
+                            <th>Action</th>
+                            <th>Image</th>
+                            @foreach ($field as $fields)
+                                @if ($fields != 'updated_at' && $fields != 'deleted_at' && $fields != 'created_at' && $fields != 'picture')
+                                    <th> {{ str_replace('_', ' ', $fields) }} </th>
+                                @endif
+                            @endforeach
                         </thead>
                         <tbody>
+
                         </tbody>
                     </table>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 facebookapi">
-                        {{-- <div class="card card-5">
-                            <div class="card__icon">
-                                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712881.png" alt="">
-                            </div>
-                            <p class="card__exit">※</p>
-                            <div class="text">Ut aliquip ex ea commodo consequat. Duis aute irure dolor</div>
-                            <p class="card__apply">
-                              <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                            </p>
-                          </div> --}}
-                    </div>
-                </div>
+                @include('layouts.modal_image');
             </main>
 
         </div>
     </div>
-   
-{{-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0&appId=965855694586098&autoLogAppEvents=1" nonce="qR4jPgar"></script> --}}
 </body>
 @include('script');
-{{-- <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId            :'',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v17.0'
-      });
-      console.log(" dd")
-       FB.api('/ 115677174889737/feed','GET',{"fields":"full_picture,message,id,event,shares,target,likes,created_time,comments,reactions"},
-       function(response) {
-      console.log(response)
-      console.log(" Note work")
-  }
-);
-    };
-   
-  </script> --}}
-  {{-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> --}}
-{{-- <script>
-    $(document).ready(function() {
-     $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
-        FB.init({
-  appId     :'1735349403560652',
-  xfbml     : true,
-  cookie    : true,
-  version   : 'v17.0'
-});
-// FB.api('/115677174889737/feed','GET',{"fields":"full_picture"},function(response) { console.log(response.error.message)}
-// );
-FB.api(
-  '/1409249143241942/posts',
-  'GET',
-  {"pretty":"0","until":"1661173322","since":null,"__paging_token":"enc_AdCy8jF3ZBe6YmStxN6ag30mQdfWP1hSJiAgSsPixeUquZAMY6a3sDXGOCN2TzElsfXZCrXVhd37ggF5I8fW4aHbd7L1hQl1SeIc9jM6ydvx3FB9QZDZD","__previous":null},
-  function(response) {
-     console.log(response)
-  }
-);
-    
-     });
-   });
-   </script> --}}
-   <script>
-    $(document).ready(function () {
-    
-   $.ajaxSetup({ cache: true });
-  $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-  $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
-    FB.init({
-      appId: '1735349403560652',
-      version: 'v17.0',
-    });     
-    FB.api(
-  '/115677174889737/feed',
-  'GET',
-  {'url':"https://graph.facebook.com/v17.0/115677174889737/feed?access_token=EAAYqSoTCqswBAOSCpKGfs0JlZB51m3ZCMKvDQG8KlNiGE3QGy8DWCUlUItJgmRzKVfJ79UhYIe7sWT4rGcb8nUuyuX4DWLiVCIjEUXuQxM7VLhvrTSaxFzHW1BOtQFiZCSIGMBShZBZBsqKiqEO06DTOFFWy2loDROHqJ6ggGnX0VLAznYsKlNDtQpDk5cOdZC2C2gKELphLZAfoaHGloKG"},
-  function(response) {
-     console.log(response)
-  }
-);
-  });
- 
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
-   </script>
+    $(document).ready(function() {
+        $(document).on('click', '.img-rounded', function() {
+            let url = $(this).data('src')
+            $('#exampleModal').modal('show')
+            $('.pre_img').attr('src', url)
+        })
+        var datatable;
+        let tr = '';
+        let ty = [];
+        ty.push({
+            data: 'action',
+            name: 'action',
+            orderable: true,
+            searchable: true
+        });
+        ty.push({
+            data: 'product_brand_logo',
+            name: 'product_brand_logo',
+            orderable: true,
+            searchable: true
+        });
+
+        $(function() {
+
+            $.ajax({
+                url: 'getfiledlistitme',
+                type: 'get',
+                success: function(data) {
+                    data.data.forEach(element => {
+
+                        if (element != 'updated_at' && element != 'created_at' &&
+                            element != 'deleted_at' && element != 'picture') {
+                            console.log(element)
+                            ty.push({
+                                data: element,
+                                name: element
+                            });
+
+                        }
+
+                    });
+                },
+                async: false
+
+            });
+            datatable = $('#item').DataTable({
+                processing: true,
+                serverSide: true,
+                rowReorder: true,
+                ajax: " {{ route('item.list') }}",
+                columns: ty,
+                dom: "Blfrtip",
+                buttons: [
+
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            modifier: {
+                                page: 'all',
+                                search: 'none'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            modifier: {
+                                page: 'all',
+                                search: 'none'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            modifier: {
+                                page: 'all',
+                                search: 'none'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            modifier: {
+                                page: 'all',
+                                search: 'none'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            modifier: {
+                                page: 'all',
+                                search: 'none'
+                            }
+                        }
+                    },
+
+
+
+                ],
+            });
+
+        })
+        $('.submit').on('click', function(e) {
+           e.preventDefault()
+            // let form = ('#item_form');
+            $.ajax({
+                type: "post",
+                url: "item/save",
+                data: $('#item_form').serialize(),
+                success: function(response) {
+                        console.log(response)
+                }
+            });
+        })
+
+        
+    });
+</script>
+
 </html>

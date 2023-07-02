@@ -19,6 +19,7 @@
 </style>
 <body>
     <div class="wrapper">
+       
         @include('layouts.side_left')
 
         <div class="main">

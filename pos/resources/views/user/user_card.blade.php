@@ -202,8 +202,6 @@
                                 @foreach ($permission as $permissions)
                                 <option value="{{$permissions->code}}">{{$permissions->code}}</option>
                                 @endforeach
-                                {{-- <option value="User">User</option>
-                                <option value="Admin">Admin</option> --}}
                              </select>
                         </div> 
                             </div>

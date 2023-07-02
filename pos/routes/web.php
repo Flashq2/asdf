@@ -86,6 +86,9 @@ Route::group(['prefix' => 'customer'], function () {
 });
 Route::group(['prefix' => 'items'], function () {
     Route::resource('/items',ItemsController::class);
+    Route::post('/item/save',[ItemsController::class,'store']);
+    Route::get('/item',[ItemsController::class,'show'])->name('item.list');
+    Route::get('/getfiledlistitme',[ItemsController::class,'getfield']);
      
 
 });

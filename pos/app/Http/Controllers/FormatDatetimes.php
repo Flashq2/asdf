@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,23 @@ class FormatDatetimes extends Controller
 {
 
     public function index(){
-        return view('items_group.item_group');
+        $cm=cModel::selectRaw("count(*) as count,id,name")
+        ->groupBy(['id','name'])
+        ->get();
+        $comfirm=0;
+        $new=0;
+         foreach($cm as $c){
+            if($c->name=="Comfirm"){
+                $comfirm+=$c->count;
+            }
+            if($c->name=="new"){
+                $new+=$c->count;
+            }
+            
+
+         }
+        //  return $comfirm;
+        return view('items_group.item_group',compact('comfirm'));
         
     }
     public function getSpecialConditionValue($field, $value)

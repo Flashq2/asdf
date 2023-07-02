@@ -21,7 +21,7 @@
             <main class="content">
 
                 @if (isset($data))
-                    sadfas
+                  
                 @endif
                         
 

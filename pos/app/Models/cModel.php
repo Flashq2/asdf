@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ItemModel extends Model
+class cModel extends Model
 {
+    protected $table="c";
     use HasFactory;
-    protected $table='items';
-    // public $incrementing = false;
-   
 }
